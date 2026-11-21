@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Maintenance Requests — Activity 8</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Campus Maintenance Requests</h1>
+      <p class="student-info">Innocent Mbalakawe • Student No: 202512783</p>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <section class="panel">
+      <h2 id="form-heading">Submit Maintenance Request</h2>
+      <form id="maintenance-form">
+        <input type="hidden" id="record-id" />
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="e.g., Broken projector in Room A4"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Choose category</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Furniture">Furniture</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" name="status" required>
+            <option value="Pending">Pending</option>
+            <option value="In progress">In progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="3"
+            placeholder="Describe the maintenance issue..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" id="submit-btn" class="btn btn-primary">
+            Submit Request
+          </button>
+          <button type="button" id="cancel-btn" class="btn btn-secondary hidden">
+            Cancel
+          </button>
+        </div>
+      </form>
+      <p id="feedback" class="feedback" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Current Requests</h2>
+        <button type="button" id="refresh-btn" class="btn btn-secondary">
+          Refresh List
+        </button>
+      </div>
+      <div id="records-container" class="records-container">
+        <p class="muted">Loading maintenance records...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
